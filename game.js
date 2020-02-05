@@ -1,5 +1,7 @@
 const textElement = document.getElementById('text')
 const optionButtonsElement = document.getElementById('option-buttons')
+const videoSource = document.getElementById('videoSource')
+const video = document.getElementById('myVideo')
 
 let state = {}
 
@@ -10,7 +12,12 @@ function startGame() {
 
 function showTextNode(textNodeIndex) {
   const textNode = textNodes.find(textNode => textNode.id === textNodeIndex)
-  textElement.innerText = textNode.text
+  textElement.innerText =  textNode.text
+  video.pause()
+  videoSource.src = textNode.video
+  video.load()
+  video.play()
+
   while (optionButtonsElement.firstChild) {
     optionButtonsElement.removeChild(optionButtonsElement.firstChild)
   }
@@ -42,6 +49,7 @@ function selectOption(option) {
 const textNodes = [
   {
     id: 1,
+    video:'goo.mp4',
     text: 'You wake up in a strange place and you see a jar of blue goo near you.',
     options: [
       {
@@ -57,6 +65,7 @@ const textNodes = [
   },
   {
     id: 2,
+    video:'merchant.mp4',
     text: 'You venture forth in search of answers to where you are when you come across a merchant.',
     options: [
       {
@@ -79,6 +88,7 @@ const textNodes = [
   },
   {
     id: 3,
+    video:'castle.mp4',
     text: 'After leaving the merchant you start to feel tired and stumble upon a small town next to a dangerous looking castle.',
     options: [
       {
@@ -97,6 +107,7 @@ const textNodes = [
   },
   {
     id: 4,
+    video:'sleep.mp4',
     text: 'You are so tired that you fall asleep while exploring the castle and are killed by some terrible monster in your sleep.',
     options: [
       {
@@ -107,6 +118,7 @@ const textNodes = [
   },
   {
     id: 5,
+    video:'nomoney.mp4',
     text: 'Without any money to buy a room you break into the nearest inn and fall asleep. After a few hours of sleep the owner of the inn finds you and has the town guard lock you in a cell.',
     options: [
       {
@@ -117,6 +129,7 @@ const textNodes = [
   },
   {
     id: 6,
+    video:'hay.mp4',
     text: 'You wake up well rested and full of energy ready to explore the nearby castle.',
     options: [
       {
@@ -127,6 +140,7 @@ const textNodes = [
   },
   {
     id: 7,
+    video:'monster.mp4',
     text: 'While exploring the castle you come across a horrible monster in your path.',
     options: [
       {
@@ -152,6 +166,7 @@ const textNodes = [
   },
   {
     id: 8,
+    video:'catch.mp4',
     text: 'Your attempts to run are in vain and the monster easily catches.',
     options: [
       {
@@ -162,6 +177,7 @@ const textNodes = [
   },
   {
     id: 9,
+    video:'facepalm.mp4',
     text: 'You foolishly thought this monster could be slain with a single sword.',
     options: [
       {
@@ -172,6 +188,7 @@ const textNodes = [
   },
   {
     id: 10,
+    video:'issou.mp4',
     text: 'The monster laughed as you hid behind your shield and ate you.',
     options: [
       {
@@ -182,6 +199,7 @@ const textNodes = [
   },
   {
     id: 11,
+    video:'nuke.mp4',
     text: 'You threw your jar of goo at the monster and it exploded. After the dust settled you saw the monster was destroyed. Seeing your victory you decide to claim this castle as your and live out the rest of your days there.',
     options: [
       {
