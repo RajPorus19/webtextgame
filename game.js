@@ -14,7 +14,7 @@ function showTextNode(textNodeIndex) {
   const textNode = textNodes.find(textNode => textNode.id === textNodeIndex)
   textElement.innerText =  textNode.text
   video.pause()
-  videoSource.src = textNode.video
+  videoSource.src = "videos/"+textNode.video
   video.load()
   video.play()
 
